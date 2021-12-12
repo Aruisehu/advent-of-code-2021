@@ -21,6 +21,7 @@ sample = list(map(lambda x: Command(x), sample))
 def readData() -> List[Command]:
     f = open("./data.txt", "r")
     values = list(map(lambda x: Command(x.replace("\n", "").split()), f.readlines()))
+    f.close()
     return values
 
 def getCoordinates(commands: List[Command]):

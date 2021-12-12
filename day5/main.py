@@ -59,6 +59,7 @@ def readData(sample = False) -> List[str]:
     filename = "./sample.txt" if sample else "./data.txt"
     f = open(filename, "r")
     vents = list(map(lambda x: createVent(x), f.readlines()))
+    f.close()
     return vents
 
 def createVent(line):

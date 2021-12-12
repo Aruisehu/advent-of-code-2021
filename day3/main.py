@@ -5,6 +5,7 @@ sample = ["00100", "11110", "10110", "10111", "10101", "01111", "00111", "11100"
 def readData() -> List[str]:
     f = open("./data.txt", "r")
     values = list(map(lambda x: x.replace("\n", ""), f.readlines()))
+    f.close()
     return values
 
 def countBits(bits): 

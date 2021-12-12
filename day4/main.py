@@ -52,6 +52,7 @@ def readData(sample = False) -> List[str]:
     bingos = list(map(lambda x: BingoNumber(int(x)), firstRow))
     bingosValues = list(map(lambda x: int(x), firstRow))
     boards = list(map(lambda x: BingoCard(x), ''.join(f.readlines()).split("\n\n")))
+    f.close()
     return boards
 
 def getFastestResult(boards):

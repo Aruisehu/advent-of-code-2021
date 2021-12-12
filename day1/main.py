@@ -3,6 +3,7 @@ sample = [199, 200, 208, 210, 200, 207, 240, 269, 260, 263]
 def readData():
     f = open("./data.txt", "r")
     values = list(map(lambda x: int(x.replace("\n", "")), f.readlines()))
+    f.close()
     return values
 
 def getIncreases(lst): 
