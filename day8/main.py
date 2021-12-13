@@ -53,42 +53,32 @@ def buildRecognizedList(lst):
     recognized = {}
     for number in copyList:
         if (len(number) == 2):
-            if 1 not in recognized:
-                recognized[1] = Recognized(1, number)
+            recognized[1] = Recognized(1, number)
         elif (len(number) == 4):
-            if 4 not in recognized:
-                recognized[4] = Recognized(4, number)
+            recognized[4] = Recognized(4, number)
         elif (len(number) == 3):
-            if 7 not in recognized:
-                recognized[7] = Recognized(7, number)
+            recognized[7] = Recognized(7, number)
         elif (len(number) == 7):
-            if 8 not in recognized:
-                recognized[8] = Recognized(8, number)
+            recognized[8] = Recognized(8, number)
         
     for number in copyList:
         # Build 2, 3 and 5 from 1 4 7 8
         if len(number) == 5:
             if (recognized[4].inCommon(number) == 3 and recognized[1].inCommon(number) == 1):
-                if 5 not in recognized:
-                    recognized[5] = Recognized(5, number)
+                recognized[5] = Recognized(5, number)
             elif (recognized[4].inCommon(number) == 2 and recognized[1].inCommon(number) == 1):
-                if 2 not in recognized:
-                    recognized[2] = Recognized(2, number)
+                recognized[2] = Recognized(2, number)
             elif (recognized[4].inCommon(number) == 3 and recognized[1].isSubset(number)):
-                if 3 not in recognized:
-                    recognized[3] = Recognized(3, number)
+                recognized[3] = Recognized(3, number)
     for number in copyList:
         # Build 0, 6, 9 from 1 2 3 4 5 7 8
         if len(number) == 6 :
             if (recognized[5].isSubset(number) and recognized[1].isSubset(number)):
-                if 9 not in recognized:
-                    recognized[9] = Recognized(9, number)
+                recognized[9] = Recognized(9, number)
             elif (recognized[5].isSubset(number) and recognized[1].inCommon(number) == 1):
-                if 6 not in recognized:
-                    recognized[6] = Recognized(6, number)
+                recognized[6] = Recognized(6, number)
             elif (recognized[2].inCommon(number) == 4 and recognized[1].isSubset(number)):
-                if 0 not in recognized:
-                    recognized[0] = Recognized(0, number)
+                recognized[0] = Recognized(0, number)
     return list(recognized.values())       
 
 def getNumberFromRecognize(number, recognize):
