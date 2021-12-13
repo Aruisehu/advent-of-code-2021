@@ -1,4 +1,3 @@
-from types import TracebackType
 from typing import List
 
 class Recognized: 
@@ -20,8 +19,7 @@ class Recognized:
 
     def isSuperset(self, string):
         return self._setString.issuperset(set(string))
-        
-    
+
     def __repr__(self):
         return f"R({self.value}, {self.string})"
 
