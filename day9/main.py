@@ -82,10 +82,9 @@ def getAreas(points):
             curr = remaining.pop(0)
             new = newAreaPoints(points, curr.i, curr.j)
             res.append(curr)
-            for i in res:
-                if i in new:
-                    new.remove(i)
-            remaining.extend(new)
+            for i in new:
+                if i not in res:
+                    remaining.append(i)
         res = list(set(res))
         areas.append(res)
     return areas
