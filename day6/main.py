@@ -9,7 +9,6 @@ def groupBy(lst):
     return count
 
 def readData(sample = False) -> List[str]:
-    global bingos, bingosValues
     filename = "./sample.txt" if sample else "./data.txt"
     f = open(filename, "r")
     lanterns = list(map(lambda x: int(x), f.readline().rstrip("\n").split(',')))
